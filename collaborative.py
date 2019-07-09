@@ -14,10 +14,9 @@ num_users = df.user.nunique()
 print("USERS: {} ITEMS: {}".format(num_users, num_items))
 
 
-
-X_train ,X_test = train_test_split(df,test_size=0.2)
-print X_train.shape
-print X_test.shape
+X_train, X_test = train_test_split(df,test_size=0.2)
+print(X_train.shape)
+print(X_test.shape)
 
 r = X_train['rating'].values.astype(float)
 min_max_scaler = preprocessing.MinMaxScaler()
@@ -108,11 +107,11 @@ with tf.Session() as session:
 
 	session.run(init)
 	session.run(local_init)
-	print matrix.shape
+	print(matrix.shape)
 	num_batches = int(matrix.shape[0] / batch_size)
 	matrix = np.array_split(matrix, num_batches)
-	#print matrix.shape[0:1]
-	print "*************************"
+	# print matrix.shape[0:1]
+	print("*************************")
 
 	for i in range(epochs):
 
